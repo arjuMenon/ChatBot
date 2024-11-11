@@ -3,7 +3,7 @@ const sendButton = document.querySelector(".send");
 const chatList = document.querySelector('.message_area');
 
 let userMessage = null;
-const API_KEY = 'AIzaSyDRPPFF_rKn-ZEHC_nvzwBNmaYQyptsQv8'; // Replace this with your actual API key
+const API_KEY = 'your api key'; // Replace this with your actual API key
 
 // Updated API URL with the API key as a query parameter
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
