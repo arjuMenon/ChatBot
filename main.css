@@ -13,7 +13,21 @@
 ::-webkit-scrollbar {
     display: none;
 }
+.left img{
+    width: 35px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit:cover;
+    align-self:flex-start;
 
+}
+.message_area img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit:cover;
+    align-self:flex-start;
+}
 body {
     height: 100vh;
     width: 100%;
