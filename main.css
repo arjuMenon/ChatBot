@@ -35,12 +35,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #111927;
-    background-image: 
-    radial-gradient(at 47% 33%, hsl(162.00, 77%, 40%) 0, transparent 59%), 
-    radial-gradient(at 82% 65%, hsl(218.00, 39%, 11%) 0, transparent 55%);
-    background-repeat: no-repeat;
+    
+    /* Set the background image for the body */
+    background: url('red.jpg') no-repeat center center/cover;
+    
+    /* Optional background properties for better visibility */
+    background-size: cover;  /* Ensures the image covers the entire body */
+    background-position: center center;  /* Centers the image */
+    background-attachment: fixed; /* Keeps the background fixed when scrolling */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional overlay if you want the background to be darker */
 }
+
 
 .chatCard {
     position: relative;
@@ -48,12 +53,18 @@ body {
     padding-right: 5px;
     width: 400px;
     overflow-y: scroll;
-    backdrop-filter: blur(25px) saturate(200%);
-    -webkit-backdrop-filter: blur(25px) saturate(200%);
-    background-color: rgba(47, 47, 61, 0.768);
+
+    /* New background image properties */
+    background: url('luffy1.1.jpg') no-repeat center center/cover;
+    
+    /* Optional background properties for better visibility */
+    backdrop-filter: blur(15px) saturate(150%);
+    -webkit-backdrop-filter: blur(15px) saturate(150%);
+    background-color: rgba(47, 47, 61, 0.6); /* Adds a semi-transparent overlay */
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.059);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 
 .chatCard .head {
     position: sticky;
@@ -109,12 +120,50 @@ body {
     max-height: calc(100% - 100px); /* Subtracting the height of head and input area */
 }
 
+/* Style for all messages */
 .message {
     display: flex;
     align-items: center;
     margin-left: 10px;
     margin-top: 10px;
-}
+    justify-content: flex-start; /* Default to left alignment for user messages */
+    clear: both; /* Clear any floated elements */
+  }
+  
+  /* Style for incoming (AI) messages */
+  .ai-message {
+    justify-content: flex-end; /* Right alignment for AI responses */
+  }
+  
+  /* Style for outgoing (User) messages */
+  .outgoing {
+    justify-content: flex-start; /* Left alignment for user messages */
+  }
+  
+  /* Adjust image and text layout */
+  .message .img {
+    display: inline-block;
+  }
+  
+  .message .text {
+    margin-left: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.556);
+    border-radius: 15px;
+    backdrop-filter: blur(25px) saturate(200%);
+    -webkit-backdrop-filter: blur(25px) saturate(200%);
+  }
+  
+  .ai-message .text {
+    background-color: rgba(0, 255, 255, 0.3); /* Light cyan background for AI messages */
+    text-align: left;  /* Ensures text aligns left within the bubble */
+  }
+  
+  .outgoing .text {
+    background-color: rgba(255, 255, 255, 0.75); /* White background for user messages */
+    text-align: left; /* User messages align left within the bubble */
+  }
+  
 
 .user {
     height: 32px;
@@ -152,20 +201,20 @@ body {
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #000000;
+    background-color:whitesmoke;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     margin-top: 10px;
 }
 
 .input-area input {
-    color: rgb(133, 130, 130);
+    color: black;
     height: 100%;
     width: 80%;
     padding: 10px;
     border: none;
     outline: none;
-    background-color: transparent;
+    background-color: whitesmoke;
     border-radius: 15px;
 }
 
