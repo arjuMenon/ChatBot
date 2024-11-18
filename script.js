@@ -6,6 +6,8 @@ let userMessage = null;
 const API_KEY = '';
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
 
+const chatHistory = [];
+
 // Function to create a message element
 const createMessageElement = (content, className) => {
   const div = document.createElement("div");
@@ -31,13 +33,16 @@ const showLoadingAnimation = () => {
 // Function to generate API response
 const generateAPIResponse = async (loadingMessageDiv) => {
   const textElement = loadingMessageDiv.querySelector(".text");
+  chatHistory.push({ role: "user", parts: [{ text: userMessage }] })
+  
 
   try {
     const response = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        contents: [{ role: "user", parts: [{ text: userMessage }] }]
+        contents: chatHistory
+
       })
     });
 
@@ -46,7 +51,9 @@ const generateAPIResponse = async (loadingMessageDiv) => {
 
     // Update the message div with the response
     textElement.innerHTML = apiResponse;
+    chatHistory.push({ role: "model", parts: [{ text: userMessage }] })
     console.log(apiResponse);
+
   } catch (error) {
     console.log(error);
     textElement.innerHTML = "Sorry, something went wrong.";
