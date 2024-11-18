@@ -3,7 +3,7 @@ const sendButton = document.querySelector(".send");
 const chatList = document.querySelector('.message_area');
 
 let userMessage = null;
-const API_KEY = '';
+const API_KEY = 'AIzaSyDRPPFF_rKn-ZEHC_nvzwBNmaYQyptsQv8';
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
 
 const chatHistory = [];
